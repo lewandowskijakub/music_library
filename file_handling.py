@@ -39,6 +39,5 @@ def export_data(albums, filename='albums_data.txt', mode='a'):
             for album in albums:
                 file_to_write.write(",".join(album)+"\n")
 
-export_data(albums, "albums_kuba.txt")
 
 
