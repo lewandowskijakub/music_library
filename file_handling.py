@@ -18,8 +18,6 @@ def import_data(filename='albums_data.txt'):
             list_of_lines.append(line)
         return list_of_lines
 
-albums = import_data()
-
 
 def export_data(albums, filename='albums_data.txt', mode='a'):
     """
