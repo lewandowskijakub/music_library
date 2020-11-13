@@ -5,13 +5,15 @@ import display
 import music_reports
 import file_handling
 
+TITLE_INDEX = 1
+
 def get_file():
     return file_handling.import_data()
 
 def get_option():
     while True:
         user_option = input("\nProvide option you want to choose: \n")
-        if user_option == "0" or user_option == "1" or user_option == "2" or user_option == "3":
+        if user_option in ["0","1","2","3","4"]:
             return user_option
 
 def get_genre():
@@ -43,6 +45,14 @@ def do_option(user_option, albums):
         total_albums_length = music_reports.get_total_albums_length(albums)
         display.print_command_result(f"Total length of albums is: {total_albums_length}.")
 
+    if user_option == "4":
+        delete_title = input("Please provide title you want to delete: \n")
+        for album in albums:
+            if delete_title == album[TITLE_INDEX]:
+                albums.remove(album)
+            file_handling.export_data(albums, "albums_deleted.txt", "w")
+
+
 def main():
     """
     Calls all interaction between user and program, handles program menu
@@ -52,7 +62,7 @@ def main():
     You should create new functions and call them from main whenever it can
     make the code cleaner
     """
-    options = ["Exit","Get albums of chosen genre", "Get longest album", "Get total albums length"]
+    options = ["Exit","Get albums of chosen genre", "Get longest album", "Get total albums length", "Delete chosen album"]
     display.print_program_menu(options)
     albums = get_file()
     user_option = None
