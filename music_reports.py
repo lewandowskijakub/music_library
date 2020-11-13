@@ -29,7 +29,7 @@ def get_albums_by_genre(albums, genre):
             list_of_albums_in_genre.append(album)
     if list_of_albums_in_genre == []:
         raise ValueError("Wrong genre")
-    return list(list_of_albums_in_genre)
+    return list_of_albums_in_genre
 
 
 def get_longest_album(albums):
