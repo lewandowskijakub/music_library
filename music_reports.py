@@ -4,9 +4,15 @@ GENRE_INDEX = 3
 LENGTH_INDEX = 4
 TITLE_INDEX = 1
 
-def get_genre_stats():
-    pass
-
+def get_genre_stats(albums):
+    genre_dict = {}
+    for album in albums:
+        if album[GENRE_INDEX] in genre_dict:
+            genre_dict[album[GENRE_INDEX]] += 1
+        else:
+            genre_dict[album[GENRE_INDEX]] = 1
+    return genre_dict
+    
 def get_last_oldest():
     pass
 
