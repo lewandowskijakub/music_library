@@ -2,6 +2,7 @@ import file_handling
 
 GENRE_INDEX = 3
 LENGTH_INDEX = 4
+RELEASE_YEAR_INDEX = 2
 TITLE_INDEX = 1
 
 def get_genre_stats(albums):
@@ -12,9 +13,15 @@ def get_genre_stats(albums):
         else:
             genre_dict[album[GENRE_INDEX]] = 1
     return genre_dict
-    
-def get_last_oldest():
-    pass
+
+def get_last_oldest(albums):
+    year_of_release = 2020
+    album_index = 0
+    for index, album in enumerate(albums):
+        if int(album[RELEASE_YEAR_INDEX]) <= year_of_release:
+            year_of_release = int(album[RELEASE_YEAR_INDEX])
+            album_index = index
+    return albums[album_index]
 
 def get_last_oldest_of_genre():
     pass
