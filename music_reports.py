@@ -13,6 +13,7 @@ def get_genre_stats(albums):
         else:
             genre_dict[album[GENRE_INDEX]] = 1
     return genre_dict
+    
 
 def get_last_oldest(albums):
     year_of_release = 2020
@@ -23,8 +24,6 @@ def get_last_oldest(albums):
             album_index = index
     return albums[album_index]
 
-def get_last_oldest_of_genre():
-    pass
 
 def get_albums_by_genre(albums, genre):
     """
@@ -44,6 +43,11 @@ def get_albums_by_genre(albums, genre):
         raise ValueError("Wrong genre")
     return list_of_albums_in_genre
 
+
+def get_last_oldest_of_genre(albums, genre):
+    list_of_albums_in_genre = get_albums_by_genre(albums, genre)
+    return (get_last_oldest(list_of_albums_in_genre))
+    
 
 def get_longest_album(albums):
     """
